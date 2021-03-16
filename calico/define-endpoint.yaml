@@ -1,0 +1,15 @@
+apiVersion: projectcalico.org/v3
+kind: HostEndpoint
+metadata:
+  name: node-1-ep 
+  labels:
+    type: production
+spec:
+  interfaceName: eth0
+  node: kube-node-1
+  expectedIPs:
+  - 10.10.10.32
+  profiles:
+  - projectcalico-default-allow
+
+ 

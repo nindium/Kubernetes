@@ -1,0 +1,14 @@
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-smtp-access-on-worker
+spec:
+  ingress:
+  - action: Allow
+    protocol: TCP
+    source:
+      nets: 
+      - '10.0.0.0/24'
+    destination:
+      ports:
+      - 25

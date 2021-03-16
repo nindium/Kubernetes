@@ -1,0 +1,7 @@
+apiVersion: projectcalico.org/v3
+kind: BGPPeer
+metadata:
+  name: to-rr
+spec:
+  peerIP: 10.10.10.1
+  asNumber: 64512

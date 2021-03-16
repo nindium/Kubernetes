@@ -1,0 +1,51 @@
+apiVersion: projectcalico.org/v3
+kind: FelixConfiguration
+metadata:
+  name: default
+spec:
+  bpfLogLevel: ""
+  ipipEnabled: true
+  logSeverityScreen: Info
+  reportingInterval: 0s
+  FailsafeInboundHostPorts:
+  - protocol: tcp
+    port: 179
+  - protocol: tcp
+    port: 2379
+  - protocol: tcp
+    port: 2380
+  - protocol: tcp
+    port: 6443
+  - protocol: tcp
+    port: 6666
+  - protocol: tcp
+    port: 6667
+  - protocol: udp
+    port: 68
+  FailsafeOutboundHostPorts:
+  - protocol: udp
+    port: 53
+  - protocol: udp
+    port: 67
+  - protocol: tcp
+    port: 179
+  - protocol: tcp
+    port: 2379
+  - protocol: tcp
+    port: 2380
+  - protocol: tcp
+    port: 6443
+  - protocol: tcp
+    port: 6666
+  - protocol: tcp
+    port: 6667
+  
+    
+  
+    
+  
+
+  
+
+
+

@@ -1,0 +1,17 @@
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-web-access
+spec:
+  selector: nodetype == "worker"
+  order: 10
+ 
+
+  ingress:
+  - action: Allow
+    protocol: TCP
+    destination:
+      ports:
+      - 80
+  egress:
+  - action: Allow

@@ -1,0 +1,29 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: volcanoes-map
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: volcanoes-map
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: volcanoes-map
+        version: v1
+    spec:
+      containers:
+        - name: vmap
+          image: nindium/myapp:v3.1
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "0.65"
+              memory: "512Mi"
+          ports:
+            - containerPort: 80
+

@@ -1,0 +1,37 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: earth-map
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: earth-map
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: earth-map
+        version: v1
+    spec:
+      containers:
+        - name: earth-map
+          image: httpd:2.4
+          volumeMounts:
+          - mountPath: /usr/local/apache2/htdocs/
+            name: iscsi-volume
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "256Mi"
+            limits:
+              cpu: "0.65"
+              memory: "512Mi"
+          ports:
+            - containerPort: 8080
+      volumes:
+      - name: iscsi-volume
+        persistentVolumeClaim:
+          claimName: iscsipvc
+      nodeSelector:
+        kubernetes.io/hostname: kube-node-1

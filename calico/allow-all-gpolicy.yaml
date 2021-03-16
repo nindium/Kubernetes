@@ -1,0 +1,19 @@
+apiVersion: projectcalico.org/v3
+kind: GlobalNetworkPolicy
+metadata:
+  name: allow-all-access-on-worker-node
+spec:
+  selector: nodetype == "worker"
+  order: 0
+  ingress:
+  - action: Allow
+    source:
+      nets:
+      - '0.0.0.0/0'
+  egress:
+  - action: Allow
+    destination:
+      nets:
+      - '0.0.0.0/0'
+
+  

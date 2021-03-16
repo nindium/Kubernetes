@@ -1,0 +1,14 @@
+apiVersion: projectcalico.org/v3
+kind: HostEndpoint
+metadata:
+  name: node-2-eth0
+  labels:
+    nodetype: worker
+spec:
+  interfaceName: eth0
+  node: kube-node-2
+  expectedIPs:
+  - 10.10.10.33
+
+  
+
